@@ -18,16 +18,24 @@ PARTICIPANTS = [
     ['al', 'julie', 'ruby'],
     ['kay', 'jenn'],
     ['philip', 'chorong'],
-    ['jennifer', 'mike'],
-    ['regina', 'jason'],
+    #['jennifer', 'mike'],
+    #['regina', 'jason'],
     ['terry', 'yunhee'],
     ['dennis', 'sean', 'emily'],
     ['gloria', 'david'],
-    ['jin', 'sang', 'carolina']
+    ['jin', 'sang', 'carolina'],
+    ['gene', 'tina'],
+    ['alex', 'christina'],
+    'sandy'
     ]
 
 
-def valid_match(a, b):
+def _valid_match(a, b):
+    """
+    Return false if a and b are in the same participant group,
+    or if a matches itself.
+    Return true otherwise.
+    """
     r = True
     if a == b:
         r = False
@@ -38,37 +46,38 @@ def valid_match(a, b):
     return r
                     
                 
-def main():
-    matches = {}
-
-    # Create a flat list of users
-    users = []
+def _get_users():
+    """
+    Return a list of users by flattening out PARTICIPANTS.
+    """
+    r = []
     for i in PARTICIPANTS:
         if isinstance(i, list):
             for j in i:
-                users.append(j)
+                r.append(j)
         else:
-            users.append(i)
+            r.append(i)
+    return r
+
+
+def main():
+    matches = {}
+
+    users = _get_users()
 
     # The available pool of users to pick from.
     # Once a user has been picked, remove them from here.
-    available = list(users)
+    available_users = list(users)
 
-    # Iterate through users and find a valid match
+    # Iterate through users and find a valid match.
     for i in users:
-        if len(available) == 1:
-            match = available[-1]
-            if valid_match(i, match):
+        while True:
+            j = random.randint(0, len(available_users) - 1)
+            match = available_users[j]
+            if _valid_match(i, match):
                 matches[i] = match
-                available.pop()
-        else:
-            while True:
-                random.shuffle(available)
-                match = available[-1]
-                if valid_match(i, match):
-                    matches[i] = match
-                    available.pop()
-                    break
+                del available_users[j]
+                break
 
     print json.dumps(matches, sort_keys=True, indent=4)
 
