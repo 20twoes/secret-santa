@@ -43,6 +43,7 @@ def _valid_match(a, b):
         for i in PARTICIPANTS:
             if isinstance(i, list) and a in i and b in i:
                 r = False
+                break
     return r
                     
                 
@@ -62,7 +63,6 @@ def _get_users():
 
 def main():
     matches = {}
-
     users = _get_users()
 
     # The available pool of users to pick from.
