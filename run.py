@@ -57,6 +57,7 @@ def main():
     # Iterate through users and find a valid match
     for i in users:
         if len(available) == 1:
+            match = available[-1]
             if valid_match(i, match):
                 matches[i] = match
                 available.pop()
