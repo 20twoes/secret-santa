@@ -6,3 +6,5 @@ To run:
 ```
 python secretsanta.py secretsanta_participants.csv secretsanta_exclusions.csv secretsanta_history.csv
 ```
+
+Works with python 2.7.6.
