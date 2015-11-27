@@ -3,15 +3,6 @@ import csv
 import random
 
 
-def get_random_number():
-    iterations = random.randint(0, 100)
-
-    out = 0
-    for i in xrange(iterations):
-        out += random.randint(0, 100)
-    return out
-
-
 def main():
     print 'Running secret santa...'
     parser = argparse.ArgumentParser()
@@ -62,12 +53,15 @@ def main():
     for key, value in data.iteritems():
         data[key]['all_exclusions'] = data[key]['history'] + data[key]['exclusions'] + [key]
 
+    participants_pool.remove('gene')
     for key, value in data.iteritems():
-        eligible_pool = list(set(participants_pool).difference(set(data[key]['all_exclusions'])))
-        data[key]['match'] = eligible_pool[get_random_number() % len(eligible_pool)]
-        participants_pool.remove(data[key]['match'])
-
-    for key, value in data.iteritems():
+        if key == 'dennis':
+            data['dennis']['match'] = 'gene'
+        else:
+            eligible_pool = list(set(participants_pool).difference(set(data[key]['all_exclusions'])))
+            random.shuffle(eligible_pool)
+            data[key]['match'] = eligible_pool[0]
+            participants_pool.remove(data[key]['match'])
         print '%s: %s' % (key, value['match'])
 
 
