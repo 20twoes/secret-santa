@@ -53,15 +53,13 @@ def main():
     for key, value in data.iteritems():
         data[key]['all_exclusions'] = data[key]['history'] + data[key]['exclusions'] + [key]
 
-    participants_pool.remove('gene')
+    # TODO: As history grows, so does exclusions.  We might not be able to
+    # find a match for everyone.
     for key, value in data.iteritems():
-        if key == 'dennis':
-            data['dennis']['match'] = 'gene'
-        else:
-            eligible_pool = list(set(participants_pool).difference(set(data[key]['all_exclusions'])))
-            random.shuffle(eligible_pool)
-            data[key]['match'] = eligible_pool[0]
-            participants_pool.remove(data[key]['match'])
+        eligible_pool = list(set(participants_pool).difference(set(data[key]['all_exclusions'])))
+        random.shuffle(eligible_pool)
+        data[key]['match'] = eligible_pool[0]
+        participants_pool.remove(data[key]['match'])
         print '%s: %s' % (key, value['match'])
 
 
