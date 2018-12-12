@@ -1,6 +1,26 @@
 import argparse
-import csv
+import json
 import random
+
+
+class Gifter(object):
+    def __init__(self, name):
+        self.name = name
+        self.exclusions = set()
+        self.history = []
+
+    def add_exclusions(self, exclusions):
+        """
+        exclusions : set
+        """
+        self.exclusions.update(exclusions)
+
+    def add_history(self, history):
+        """
+        history : list
+            A list of past matches in chronological order.
+        """
+        self.history = self.history + history
 
 
 def main():
@@ -11,56 +31,73 @@ def main():
     parser.add_argument('history', type=argparse.FileType('rU'))
     args = parser.parse_args()
 
-    data = {}
-    PARTICIPANT_NAME = 0
+    gifters = {}
 
-    with args.participants as csv_file:
-        reader = csv.reader(csv_file)
-        header_row = True
-        for row in reader:
-            if header_row:
-                header_row = False
-                continue
-            if row[-1]:
-                data[row[-1]] = {'history': [], 'exclusions': []}
+    # Parse Participants
+    with args.participants as f:
+        years = json.load(f)
+        # Use the last data.  Could make this configurable in the future.
+        year = years[-1]
+        print('Year {}'.format(year['year']))
 
-    with args.exclusions as csv_file:
-        reader = csv.reader(csv_file)
-        header_row = True
-        for row in reader:
-            if header_row:
-                header_row = False
-                continue
-            person = row[PARTICIPANT_NAME]
-            if person in data:
-                data[person]['exclusions'] = row[PARTICIPANT_NAME + 1:]
-                data[person]['exclusions'] = [i for i in data[person]['exclusions'] if i]
+        for participant in year['participants']:
+            print('participant: {}'.format(participant))
+            gifters[participant] = Gifter(name=participant)
 
-    with args.history as csv_file:
-        reader = csv.reader(csv_file)
-        header_row = True
-        for row in reader:
-            if header_row:
-                header_row = False
-                continue
-            person = row[PARTICIPANT_NAME]
-            if person in data:
-                data[person]['history'] = row[PARTICIPANT_NAME + 1:]
-                data[person]['history'] = [i for i in data[person]['history'] if i]
+    # Parse Exclusions
+    with args.exclusions as f:
+        exclusion_data = json.load(f)
+        for exclusions in exclusion_data:
+            for person in exclusions:
+                for name, gifter in gifters.iteritems():
+                    if name == person:
+                        gifter.add_exclusions(exclusions)
 
-    participants_pool = data.keys()
+    # Parse History
+    with args.history as f:
+        history_data = json.load(f)
 
-    for key, value in data.iteritems():
-        data[key]['all_exclusions'] = data[key]['history'] + data[key]['exclusions'] + [key]
+        for name, gifter in gifters.iteritems():
+            history = history_data.get(name)
+            if history:
+                previous_matches = [i['match'] for i in sorted(history, key=lambda i: i['year'])]
+                gifter.add_history(previous_matches)
 
-    # TODO: As history grows, so does exclusions.  We might not be able to
-    # find a match for everyone.
-    for key, value in data.iteritems():
-        eligible_pool = list(set(participants_pool).difference(set(data[key]['all_exclusions'])))
-        random.shuffle(eligible_pool)
-        data[key]['match'] = eligible_pool[0]
-        participants_pool.remove(data[key]['match'])
-        print '%s: %s' % (key, value['match'])
+    print('\n')
+    print('Generating matches...')
+    print('\n')
+
+    participants = set(gifters.keys())
+    matched = set()
+    min_history_to_keep = 3
+    for name, gifter in sorted(gifters.iteritems()):
+        history_to_include_index = 0
+        while True:
+
+            history = set(gifter.history[history_to_include_index:])
+            pool = participants\
+                .difference(matched)\
+                .difference(history)\
+                .difference(gifter.exclusions)
+            pool = list(pool)
+            random.shuffle(pool)
+
+            try:
+                match = pool[0]
+            except IndexError:
+                # Start excluding the oldest history until we get a match or hit our cap.
+                # print('No matches found for {} with history: {}'.format(name, history))
+                if len(history) > min_history_to_keep:
+                    history_to_include_index += 1
+                    continue
+                else:
+                    print('No matches found for {}'.format(name))
+                    break
+            else:
+                assert match not in matched
+                matched.add(match)
+                print('{} -> {}'.format(name, match))
+                break
 
 
 if __name__ == '__main__':

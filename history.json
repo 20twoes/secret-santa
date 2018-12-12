@@ -1,0 +1,506 @@
+{
+  "alex": [
+    {
+      "year": 2013,
+      "match": "gene"
+    },
+    {
+      "year": 2014,
+      "match": "jen"
+    },
+    {
+      "year": 2015,
+      "match": "sang"
+    }
+  ],
+  "jen": [
+    {
+      "year": 2013,
+      "match": "tina"
+    },
+    {
+      "year": 2014,
+      "match": "terry"
+    },
+    {
+      "year": 2015,
+      "match": "ruby"
+    }
+  ],
+  "julie": [
+    {
+      "year": 2013,
+      "match": "terry"
+    },
+    {
+      "year": 2014,
+      "match": "emily"
+    },
+    {
+      "year": 2015,
+      "match": "alex"
+    },
+    {
+      "year": 2016,
+      "match": "kay"
+    },
+    {
+      "year": 2017,
+      "match": "kara"
+    }
+  ],
+  "kay": [
+    {
+      "year": 2007,
+      "match": "al"
+    },
+    {
+      "year": 2013,
+      "match": "gloria"
+    },
+    {
+      "year": 2014,
+      "match": "ruby"
+    },
+    {
+      "year": 2015,
+      "match": "julie"
+    },
+    {
+      "year": 2016,
+      "match": "yunhee"
+    },
+    {
+      "year": 2017,
+      "match": "liv"
+    }
+  ],
+  "ruby": [
+    {
+      "year": 2013,
+      "match": "sean"
+    },
+    {
+      "year": 2014,
+      "match": "yunhee"
+    },
+    {
+      "year": 2015,
+      "match": "dennis"
+    },
+    {
+      "year": 2016,
+      "match": "emily"
+    },
+    {
+      "year": 2017,
+      "match": "kasey"
+    }
+  ],
+  "david": [
+    {
+      "year": 2013,
+      "match": "kay"
+    }
+  ],
+  "yunhee": [
+    {
+      "year": 2013,
+      "match": "david"
+    },
+    {
+      "year": 2014,
+      "match": "al"
+    },
+    {
+      "year": 2015,
+      "match": "sean"
+    },
+    {
+      "year": 2016,
+      "match": "jenn"
+    },
+    {
+      "year": 2017,
+      "match": "tina_neice_yunah"
+    }
+  ],
+  "gloria": [
+    {
+      "year": 2013,
+      "match": "dennis"
+    }
+  ],
+  "dennis": [
+    {
+      "year": 2013,
+      "match": "mike"
+    },
+    {
+      "year": 2014,
+      "match": "kay"
+    },
+    {
+      "year": 2015,
+      "match": "gene"
+    },
+    {
+      "year": 2017,
+      "match": "carolina_sister_melissa"
+    }
+  ],
+  "emily": [
+    {
+      "year": 2013,
+      "match": "christina"
+    },
+    {
+      "year": 2014,
+      "match": "morgen"
+    },
+    {
+      "year": 2015,
+      "match": "terry"
+    },
+    {
+      "year": 2016,
+      "match": "julie"
+    }
+  ],
+  "mike": [
+    {
+      "year": 2013,
+      "match": "al"
+    },
+    {
+      "year": 2014,
+      "match": "jenn"
+    },
+    {
+      "year": 2015,
+      "match": "yunhee"
+    }
+  ],
+  "jenn": [
+    {
+      "year": 2013,
+      "match": "emily"
+    },
+    {
+      "year": 2014,
+      "match": "alex"
+    },
+    {
+      "year": 2015,
+      "match": "mike"
+    },
+    {
+      "year": 2016,
+      "match": "sean"
+    },
+    {
+      "year": 2017,
+      "match": "yunhee"
+    }
+  ],
+  "jin": [
+    {
+      "year": 2013,
+      "match": "jenn"
+    },
+    {
+      "year": 2014,
+      "match": "gene"
+    },
+    {
+      "year": 2017,
+      "match": "tina_brother_sung"
+    }
+  ],
+  "tina": [
+    {
+      "year": 2013,
+      "match": "ruby"
+    },
+    {
+      "year": 2014,
+      "match": "dennis"
+    },
+    {
+      "year": 2015,
+      "match": "carolina"
+    },
+    {
+      "year": 2017,
+      "match": "morgen"
+    }
+  ],
+  "gene": [
+    {
+      "year": 2013,
+      "match": "alex"
+    },
+    {
+      "year": 2014,
+      "match": "julie"
+    },
+    {
+      "year": 2015,
+      "match": "jen"
+    },
+    {
+      "year": 2017,
+      "match": "al"
+    }
+  ],
+  "sean": [
+    {
+      "year": 2013,
+      "match": "yunhee"
+    },
+    {
+      "year": 2014,
+      "match": "christina"
+    },
+    {
+      "year": 2015,
+      "match": "tina"
+    },
+    {
+      "year": 2016,
+      "match": "al"
+    },
+    {
+      "year": 2017,
+      "match": "clark"
+    }
+  ],
+  "al": [
+    {
+      "year": 2013,
+      "match": "jenn"
+    },
+    {
+      "year": 2014,
+      "match": "jin"
+    },
+    {
+      "year": 2015,
+      "match": "christina"
+    },
+    {
+      "year": 2016,
+      "match": "terry"
+    },
+    {
+      "year": 2017,
+      "match": "tina"
+    }
+  ],
+  "terry": [
+    {
+      "year": 2013,
+      "match": "julie,"
+    },
+    {
+      "year": 2014,
+      "match": "sean"
+    },
+    {
+      "year": 2015,
+      "match": "emily"
+    },
+    {
+      "year": 2016,
+      "match": "ruby"
+    },
+    {
+      "year": 2017,
+      "match": "matt"
+    }
+  ],
+  "christina": [
+    {
+      "year": 2013,
+      "match": "jin"
+    },
+    {
+      "year": 2014,
+      "match": "tina"
+    },
+    {
+      "year": 2015,
+      "match": "jenn"
+    }
+  ],
+  "morgen": [
+    {
+      "year": 2014,
+      "match": "mike"
+    },
+    {
+      "year": 2017,
+      "match": "zoe"
+    }
+  ],
+  "carolina": [
+    {
+      "year": 2015,
+      "match": "al"
+    },
+    {
+      "year": 2017,
+      "match": "sean"
+    }
+  ],
+  "sang": [
+    {
+      "year": 2015,
+      "match": "kay"
+    },
+    {
+      "year": 2017,
+      "match": "jack"
+    }
+  ],
+  "rohan": [
+    {
+      "year": 2016,
+      "match": "liv"
+    },
+    {
+      "year": 2017,
+      "match": "dennis"
+    }
+  ],
+  "mason": [
+    {
+      "year": 2016,
+      "match": "kasey"
+    },
+    {
+      "year": 2017,
+      "match": "gene"
+    }
+  ],
+  "kasey": [
+    {
+      "year": 2016,
+      "match": "kara"
+    },
+    {
+      "year": 2017,
+      "match": "ethan"
+    }
+  ],
+  "cora": [
+    {
+      "year": 2016,
+      "match": "zoe"
+    },
+    {
+      "year": 2017,
+      "match": "mason"
+    }
+  ],
+  "kara": [
+    {
+      "year": 2016,
+      "match": "cora"
+    },
+    {
+      "year": 2017,
+      "match": "kay"
+    }
+  ],
+  "sam": [
+    {
+      "year": 2016,
+      "match": "mason"
+    },
+    {
+      "year": 2017,
+      "match": "clare"
+    }
+  ],
+  "liv": [
+    {
+      "year": 2016,
+      "match": "rohan"
+    },
+    {
+      "year": 2017,
+      "match": "crissy"
+    }
+  ],
+  "zoe": [
+    {
+      "year": 2016,
+      "match": "sam"
+    },
+    {
+      "year": 2017,
+      "match": "terry"
+    }
+  ],
+  "tina_brother_sung": [
+    {
+      "year": 2017,
+      "match": "julie"
+    }
+  ],
+  "clark": [
+    {
+      "year": 2017,
+      "match": "rohan"
+    }
+  ],
+  "clare": [
+    {
+      "year": 2017,
+      "match": "jin"
+    }
+  ],
+  "matt": [
+    {
+      "year": 2017,
+      "match": "carolina"
+    }
+  ],
+  "carolina_sister_melissa": [
+    {
+      "year": 2017,
+      "match": "sam"
+    }
+  ],
+  "ethan": [
+    {
+      "year": 2017,
+      "match": "tina_sister_bak_min"
+    }
+  ],
+  "jack": [
+    {
+      "year": 2017,
+      "match": "ruby"
+    }
+  ],
+  "crissy": [
+    {
+      "year": 2017,
+      "match": "cora"
+    }
+  ],
+  "tina_sister_bak_min": [
+    {
+      "year": 2017,
+      "match": "jenn"
+    }
+  ],
+  "tina_neice_yunah": [
+    {
+      "year": 2017,
+      "match": "sang"
+    }
+  ]
+}
