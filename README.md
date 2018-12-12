@@ -4,7 +4,7 @@ Create matches for Secret Santa groups.  Takes into account history and custom e
 
 To run:
 ```
-python secretsanta.py participants.csv exclusions.csv history.csv
+python secretsanta.py participants.json exclusions.json history.json
 ```
 
-Works with python 2.7.6.
+Works with python 2.7.12.
